@@ -1,22 +1,22 @@
-const musicContainer = document.getElementById('music-container');
-const playBtn = document.getElementById('play');
-const prevBtn = document.getElementById('prev');
-const nextBtn = document.getElementById('next');
+const musicContainer = document.getElementById("music-container");
+const playBtn = document.getElementById("play");
+const prevBtn = document.getElementById("prev");
+const nextBtn = document.getElementById("next");
 
-const audio = document.getElementById('audio');
-const progress = document.getElementById('progress');
-const progressContainer = document.getElementById('progress-container');
-const title = document.getElementById('title');
-const cover = document.getElementById('cover');
-const coverLarge = document.getElementById('cover-large');
-const currTime = document.querySelector('#currTime');
-const durTime = document.querySelector('#durTime');
+const audio = document.getElementById("audio");
+const progress = document.getElementById("progress");
+const progressContainer = document.getElementById("progress-container");
+const title = document.getElementById("title");
+const cover = document.getElementById("cover");
+const coverLarge = document.getElementById("cover-large");
+const currTime = document.querySelector("#currTime");
+const durTime = document.querySelector("#durTime");
 
 // Song titles
 const songs = [
-    'Arcturus OST - 내겐 너무 아름다운',
-    '米津玄師 - まちがいさがし',
-    'Mariya Takeuchi - Plastic Love'
+  "Arcturus OST - 내겐 너무 아름다운",
+  "米津玄師 - まちがいさがし",
+  "Mariya Takeuchi - Plastic Love",
 ];
 
 // Keep track of song
@@ -30,23 +30,23 @@ function loadSong(song) {
   title.innerText = song;
   audio.src = `./assets/audio/${song}.flac`;
   cover.src = `./assets/img/${song}.jpg`;
-  coverLarge.src = `./assets/img/${song}.jpg`
+  coverLarge.src = `./assets/img/${song}.jpg`;
 }
 
 // Play song
 function playSong() {
-  musicContainer.classList.add('play');
-  playBtn.querySelector('i.fas').classList.remove('fa-play');
-  playBtn.querySelector('i.fas').classList.add('fa-pause');
+  musicContainer.classList.add("play");
+  playBtn.querySelector("i.fas").classList.remove("fa-play");
+  playBtn.querySelector("i.fas").classList.add("fa-pause");
 
   audio.play();
 }
 
 // Pause song
 function pauseSong() {
-  musicContainer.classList.remove('play');
-  playBtn.querySelector('i.fas').classList.add('fa-play');
-  playBtn.querySelector('i.fas').classList.remove('fa-pause');
+  musicContainer.classList.remove("play");
+  playBtn.querySelector("i.fas").classList.add("fa-play");
+  playBtn.querySelector("i.fas").classList.remove("fa-pause");
 
   audio.pause();
 }
@@ -93,10 +93,9 @@ function setProgress(e) {
   audio.currentTime = (clickX / width) * duration;
 }
 
-
 // Event listeners
-playBtn.addEventListener('click', () => {
-  const isPlaying = musicContainer.classList.contains('play');
+playBtn.addEventListener("click", () => {
+  const isPlaying = musicContainer.classList.contains("play");
 
   if (isPlaying) {
     pauseSong();
@@ -106,19 +105,17 @@ playBtn.addEventListener('click', () => {
 });
 
 // Change song
-prevBtn.addEventListener('click', prevSong);
-nextBtn.addEventListener('click', nextSong);
+prevBtn.addEventListener("click", prevSong);
+nextBtn.addEventListener("click", nextSong);
 
 // Time/song update
-audio.addEventListener('timeupdate', updateProgress);
+audio.addEventListener("timeupdate", updateProgress);
 
 // Click on progress bar
-progressContainer.addEventListener('click', setProgress);
+progressContainer.addEventListener("click", setProgress);
 
 // Song ends
-audio.addEventListener('ended', nextSong);
+audio.addEventListener("ended", nextSong);
 
 // Time of song
-audio.addEventListener('timeupdate',durTime);
-
-
+audio.addEventListener("timeupdate", durTime);

@@ -1,3 +1,4 @@
-# Vanilla JS Audio Player
+# Vinylla Player - Lighter Audio Player
 
 Practicing with HTMLAudioElement with JS
+
