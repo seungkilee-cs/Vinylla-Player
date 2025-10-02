@@ -1,4 +1,5 @@
-# Vinylla Player
+# [Vinylla Player](www.seungkilee.com/Vinylla-Player/)
+
 
 ![screenshot](./assets/img/2025-10-02-vinylla.png)
 
@@ -9,6 +10,9 @@ I wanted to build a serverless single-page audio player without relying on React
 
 The whole UI theme was vinyl record player meets cyberpunk, because retro is timeless and I'd just watched Edgerunners. If you take nothing else from reading this, you should watch Edgerunner.
 
+
+## Demo
+[Demo](www.seungkilee.com/Vinylla-Player/)
 
 ## Features
 
