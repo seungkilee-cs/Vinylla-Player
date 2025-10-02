@@ -1,63 +1,145 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
-    />
-    <link rel="stylesheet" href="style.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vinylla Player</title>
-  </head>
-  <body>
-    <h1>Vinylla Player</h1>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="data:image/png;base64,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">
+</head>
+<body>
+    <div class="app-shell">
+        <div class="content-region">
+            <main class="player-stage">
+                <section class="player-stack">
+                    <div class="player-console">
+                        <div class="song-info">
+                            <span class="track-tag">Now decoding</span>
 
-    <div class="cover-lage">
-      <img
-        src="assets/img/Mariya Takeuchi - Plastic Love.jpg"
-        alt=""
-        id="cover-large"
-      />
-    </div>
+                            <div class="player-visual">
+                                <div class="hologram-shell">
+                                    <div class="glow-ring ring-1"></div>
+                                    <div class="glow-ring ring-2"></div>
+                                    <div class="glow-ring ring-3"></div>
+                                    <div class="record-player-wrapper">
+                                        <div class="record-player-container">
+                                            <div class="record-player">
+                                                <div class="album-art">
+                                                    <div class="record">
+                                                        <div class="record-label">
+                                                            <img src="assets/img/Mariya Takeuchi - Plastic Love.jpg" alt="Album Art" id="cover">
+                                                        </div>
+                                                        <div class="record-grooves"></div>
+                                                    </div>
+                                                    <div class="tone-arm">
+                                                        <div class="tone-arm-pivot"></div>
+                                                        <div class="tone-arm-rod"></div>
+                                                        <div class="tone-arm-head"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="visualizer" aria-hidden="true">
+                                                    <canvas id="visualizer-canvas"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-    <div class="music-container" id="music-container">
-      <div class="music-info">
-        <h4 id="title"></h4>
+                            <h1 id="title">Song Title</h1>
+                            <p id="artist">Artist Name</p>
+                        </div>
 
-        <div class="progress-container" id="progress-container">
-          <div class="progress" id="progress"></div>
+                        <div class="progress-container">
+                            <span class="time-display" id="current-time">0:00</span>
+                            <div class="progress-bar">
+                                <div class="progress" id="progress"></div>
+                                <div class="progress-tooltip" id="progress-tooltip">0:00</div>
+                            </div>
+                            <span class="time-display" id="duration">3:45</span>
+                        </div>
+
+                        <div class="controls">
+                            <button id="shuffle" class="control-btn" title="Shuffle">
+                                <i class="fas fa-shuffle"></i>
+                            </button>
+                            <button id="prev" class="control-btn" title="Previous track">
+                                <i class="fas fa-backward-step"></i>
+                            </button>
+                            <button id="backward5" class="control-btn" title="Back 5 seconds">
+                                <i class="fas fa-rotate-left"></i>
+                            </button>
+                            <button id="play" class="play-btn" title="Play/Pause">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <button id="forward5" class="control-btn" title="Forward 5 seconds">
+                                <i class="fas fa-rotate-right"></i>
+                            </button>
+                            <button id="next" class="control-btn" title="Next track">
+                                <i class="fas fa-forward-step"></i>
+                            </button>
+                            <button id="repeat" class="control-btn" title="Repeat">
+                                <i class="fas fa-repeat"></i>
+                            </button>
+                        </div>
+
+                        <div class="volume-row">
+                            <i class="fas fa-volume-down"></i>
+                            <input type="range" id="volume" aria-label="Volume control" min="0" max="1" step="0.01" value="0.7">
+                            <i class="fas fa-volume-up"></i>
+                        </div>
+
+                        <div class="console-footer">
+                            <button class="chip-button" type="button">
+                                <i class="fas fa-shuffle"></i>
+                                <span>Auto-shuffle</span>
+                            </button>
+                            <button class="chip-button" type="button">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>Sync cloud</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <aside class="queue-stack">
+                    <header class="queue-header">
+                        <div>
+                            <h2>Queue</h2>
+                        </div>
+                        <div class="queue-controls">
+                            <label class="sr-only" for="sort-by">Sort tracks</label>
+                            <select id="sort-by" aria-label="Sort playlist">
+                                <option value="default">Default</option>
+                                <option value="title">Title</option>
+                                <option value="artist">Artist</option>
+                            </select>
+                            <button class="queue-action" type="button"><i class="fas fa-wand-magic"></i></button>
+                        </div>
+                    </header>
+
+                    <div class="queue-body">
+                        <div class="playlist-stats">
+                            <div>
+                                <span>Total runtime</span>
+                                <strong data-total-runtime>00:00</strong>
+                            </div>
+                        </div>
+
+                        <div class="playlist-list" id="playlist">
+                            <!-- Songs populated by script.js -->
+                        </div>
+                    </div>
+                </aside>
+            </main>
         </div>
-      </div>
-
-      <audio
-        src="assets/audio/Mariya Takeuchi - Plastic Love.flac"
-        id="audio"
-      ></audio>
-
-      <div class="img-container">
-        <img
-          src="assets/img/Mariya Takeuchi - Plastic Love.jpg"
-          alt="music-cover"
-          id="cover"
-        />
-      </div>
-
-      <div class="navigation">
-        <button id="prev" class="action-btn">
-          <i class="fas fa-backward"></i>
-        </button>
-        <button id="play" class="action-btn action-btn-big">
-          <i class="fas fa-play"></i>
-        </button>
-        <button id="next" class="action-btn">
-          <i class="fas fa-forward"></i>
-        </button>
-      </div>
     </div>
 
+    <audio id="audio" src=""></audio>
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
-
